@@ -63,8 +63,10 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-/////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 // Functions
+
+// ********************************** //
 
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
@@ -79,7 +81,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov}</div>
       </div>
     `;
 
@@ -87,21 +89,25 @@ const displayMovements = function (movements, sort = false) {
   });
 };
 
+// ********************************** //
+
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance}`;
 };
+
+// ********************************** //
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes}`;
 
   const out = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out)}`;
 
   const interest = acc.movements
     .filter((mov) => mov > 0)
@@ -111,8 +117,10 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest}`;
 };
+
+// ********************************** //
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -125,6 +133,8 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
+// ********************************** //
+
 const updateUI = function (acc) {
   // Display movements
   displayMovements(acc.movements);
@@ -136,7 +146,8 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Event handlers
 let currentAccount;
 
@@ -165,6 +176,8 @@ btnLogin.addEventListener("click", function (e) {
   }
 });
 
+//////////////////////////////////////////////////////////////////
+
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
@@ -188,6 +201,8 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+//////////////////////////////////////////////////////////////////
+
 btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -205,6 +220,8 @@ btnLoan.addEventListener("click", function (e) {
   }
   inputLoanAmount.value = "";
 });
+
+//////////////////////////////////////////////////////////////////
 
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
@@ -228,6 +245,8 @@ btnClose.addEventListener("click", function (e) {
 
   inputCloseUsername.value = inputClosePin.value = "";
 });
+
+//////////////////////////////////////////////////////////////////
 
 let sorted = false;
 btnSort.addEventListener("click", function (e) {
