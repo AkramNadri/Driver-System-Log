@@ -40,6 +40,7 @@ const accounts = [account1, account2, account3, account4];
 // Elements
 
 const currentTimeStamp = document.querySelector(".movements__date");
+const btnLogOut = document.querySelector(".btn--logout");
 
 const labelWelcome = document.querySelector(".welcome");
 const labelDate = document.querySelector(".date");
@@ -60,8 +61,8 @@ const btnSort = document.querySelector(".btn--sort");
 
 const inputLoginUsername = document.querySelector(".login__input--user");
 const inputLoginPin = document.querySelector(".login__input--pin");
-const inputTransferTo = document.querySelector(".form__input--to");
-const inputTransferAmount = document.querySelector(".form__input--amount");
+const inputTransferTo = document.querySelector(".form__input--amount");
+const inputTransferAmount = document.querySelector(".form__input--tip");
 const inputLoanAmount = document.querySelector(".form__log--order");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
@@ -215,6 +216,7 @@ btnOrder.addEventListener("click", function (e) {
   e.preventDefault();
 
   const amount = inputLoanAmount.value;
+  console.log(typeof amount);
   // Add movement
   currentAccount.movements.push(amount);
 
@@ -222,6 +224,14 @@ btnOrder.addEventListener("click", function (e) {
   updateUI(currentAccount);
 
   inputLoanAmount.value = "";
+});
+
+//////////////////////////////////////////////////////////////////
+
+btnLogOut.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  containerApp.style.opacity = 0;
 });
 
 //////////////////////////////////////////////////////////////////

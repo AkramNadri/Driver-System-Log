@@ -30,7 +30,7 @@ nav {
 }
 
 .logo {
-  height: 5.25rem;
+  height: 6.25rem;
 }
 
 .login {
@@ -196,6 +196,16 @@ nav {
 .btn--sort {
   margin-left: auto;
   border: none;
+  background: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn--logOut {
+  margin-left: auto;
+  border: ;
+  color: red;
   background: none;
   font-size: 1.3rem;
   font-weight: 500;

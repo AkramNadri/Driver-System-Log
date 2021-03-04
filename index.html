@@ -96,19 +96,9 @@
         <p class="summary__label">Interest</p>
         <p class="summary__value summary__value--interest">$00</p>
         <button class="btn--sort">&downarrow; SORT</button>
+        <!-- LOG OUT BUTTON -->
+        <button class="btn--logout">Log Out</button>
       </div>
-
-      <!-- OPERATION: TRANSFERS -->
-      <!-- <div class="operation operation--transfer">
-        <h2>Transfer money</h2>
-        <form class="form form--transfer">
-          <input type="text" class="form__input form__input--to" />
-          <input type="number" class="form__input form__input--amount" />
-          <button class="form__btn form__btn--transfer">&rarr;</button>
-          <label class="form__label">Transfer to</label>
-          <label class="form__label">Amount</label>
-        </form>
-      </div> -->
 
       <!-- OPERATION: ORDERS -->
       <div class="operation operation--loan">
@@ -121,9 +111,21 @@
         </form>
       </div>
 
+      <!-- OPERATION: AMOUNT & TIP -->
+      <div class="operation operation--transfer">
+        <h2>Total</h2>
+        <form class="form form--transfer">
+          <input type="number" class="form__input form__input--amount" />
+          <input type="number" class="form__input form__input--tip" />
+          <button class="form__btn form__btn--transfer">&rarr;</button>
+          <label class="form__label">Amount</label>
+          <label class="form__label">Tip</label>
+        </form>
+      </div>
+
       <!-- OPERATION: CLOSE -->
       <div class="operation operation--close">
-        <h2>Close account</h2>
+        <h2>Cash Out Driver</h2>
         <form class="form form--close">
           <input type="text" class="form__input form__input--user" />
           <input
